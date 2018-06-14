@@ -1,0 +1,595 @@
+<!--
+  ~ Copyright 2015 MbientLab Inc. All rights reserved.
+  ~
+  ~ IMPORTANT: Your use of this Software is limited to those specific rights
+  ~ granted under the terms of a software license agreement between the user who
+  ~ downloaded the software, his/her employer (which must be your employer) and
+  ~ MbientLab Inc, (the "License").  You may not use this Software unless you
+  ~ agree to abide by the terms of the License which can be found at
+  ~ www.mbientlab.com/terms . The License limits your use, and you acknowledge,
+  ~ that the  Software may not be modified, copied or distributed and can be used
+  ~ solely and exclusively in conjunction with a MbientLab Inc, product.  Other
+  ~ than for the foregoing purpose, you may not use, reproduce, copy, prepare
+  ~ derivative works of, modify, distribute, perform, display or sell this
+  ~ Software and/or its documentation for any purpose.
+  ~
+  ~ YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+  ~ PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  ~ INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+  ~ NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+  ~ MBIENTLAB OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT, NEGLIGENCE,
+  ~ STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER LEGAL EQUITABLE
+  ~ THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES INCLUDING BUT NOT LIMITED
+  ~ TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR CONSEQUENTIAL DAMAGES, LOST
+  ~ PROFITS OR LOST DATA, COST OF PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY,
+  ~ SERVICES, OR ANY CLAIMS BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY
+  ~ DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+  ~
+  ~ Should you have any questions regarding your right to use this Software,
+  ~ contact MbientLab Inc, at www.mbientlab.com.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    tools:context="com.mbientlab.metawear.tutorial.starter.DeviceSetupActivityFragment"
+    tools:showIn="@layout/activity_device_setup"
+    android:background="@color/colorBackground">
+
+
+    <Button
+        android:id="@+id/bt_global_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rl_main_menu"
+        android:text="BACK"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_next_ex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Next exercise is ..."
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_main_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/bt_experiment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="31dp"
+            android:text="Experiment" />
+
+        <Button
+            android:id="@+id/bt_train"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Train" />
+
+        <Button
+            android:id="@+id/bt_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/bt_train"
+            android:layout_marginBottom="12dp"
+            android:text="Settings" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_train"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="32dp">
+
+        <Switch
+            android:id="@+id/sw_hand_arm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_train_score"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp"
+            android:text="Hand/Arm  "
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            tools:checked="false" />
+
+        <TextView
+            android:id="@+id/tv_train_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Score:\nNA"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="100sp" />
+
+        <Button
+            android:id="@+id/bt_train_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/sw_hand_arm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"
+            android:text="Back" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/bt_setting_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/et_subject_ID"
+            android:layout_marginBottom="15dp"
+            android:text="Go back" />
+
+        <TextView
+            android:id="@+id/tv_stimuli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="64dp"
+            android:text="Number of stimuli: 50"
+            android:textSize="30sp" />
+
+        <SeekBar
+            android:id="@+id/sb_stimuli"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_stimuli"
+            android:layout_below="@+id/tv_stimuli"
+            android:max="20"
+            android:progress="10" />
+
+        <TextView
+            android:id="@+id/tv_subject_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/sb_stimuli"
+            android:layout_below="@+id/sb_stimuli"
+            android:layout_marginTop="60dp"
+            android:text="Next Subject ID:"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/et_subject_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_subject_ID"
+            android:layout_below="@+id/tv_subject_ID"
+            android:ems="10"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/bt_subject_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/et_subject_ID"
+            android:layout_toEndOf="@+id/et_subject_ID"
+            android:text="change" />
+
+        <Button
+            android:id="@+id/bt_delete"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/bt_setting_home"
+            android:layout_alignBottom="@+id/bt_setting_home"
+            android:layout_alignEnd="@+id/bt_share"
+            android:background="@color/colorAccent"
+            android:text="Delete Data"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/bt_share"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_above="@+id/bt_subject_ID"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="23dp"
+            android:background="@android:color/holo_orange_light"
+            android:text="email\ndata"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bt_share2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignBottom="@+id/tv_subject_ID"
+            android:layout_marginEnd="37dp"
+            android:layout_toStartOf="@+id/bt_share"
+            android:background="@android:color/holo_green_light"
+            android:text="move\ndata"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bt_settings_toogle_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/bt_setting_home"
+            android:text="Toggle back button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_experiment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="visible">
+
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tv_age"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="59dp"
+            android:text="Gender"
+            android:textSize="30sp" />
+
+        <RadioGroup
+            android:id="@+id/rg_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_gender"
+            android:layout_below="@+id/tv_gender">
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/rg_gender"
+                android:layout_below="@+id/rg_gender"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="Male"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Female"
+                android:textSize="24sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Age: 25"
+            android:textSize="30sp" />
+
+
+        <Button
+            android:id="@+id/bt_start_experiment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="37dp"
+            android:text="Start" />
+
+        <SeekBar
+            android:id="@+id/sb_age"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_age"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:max="100"
+            android:progress="25" />
+
+        <TextView
+            android:id="@+id/tv_ex_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="27dp"
+            android:text="NA"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ex_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/rl_main_menu"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_noise"
+            android:layout_width="1500dp"
+            android:layout_height="400dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="52dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/noise" />
+
+        <Button
+            android:id="@+id/bt_grey_box"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:layout_alignTop="@+id/iv_noise"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="95dp"
+            android:background="@color/ic_launcher_background"
+            android:enabled="false" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ex_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_ex_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:text="A number"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="200sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ex_slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rl_main_menu"
+        android:visibility="gone">
+
+        <SeekBar
+            android:id="@+id/sb_ex_slider"
+            android:layout_width="100mm"
+            android:layout_height="50dp"
+            android:layout_above="@+id/bt_slider_submit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="19dp"
+            android:max="10000"
+            android:progress="3000"
+            android:progressTint="@android:color/transparent"
+            android:thumb="@android:color/transparent"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/bt_next_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bt_slider_submit"
+            android:layout_alignParentStart="true"
+            android:background="@color/colorPrimary"
+            android:text="Next"
+            android:textColor="@color/colorAccent"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/bt_next_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bt_slider_submit"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            android:text="Next"
+            android:textColor="@color/colorAccent"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/bt_slider_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:text="Submit"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/tv_slider_min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_slider_max"
+            android:layout_alignBottom="@+id/tv_slider_max"
+            android:layout_marginEnd="15dp"
+            android:layout_toStartOf="@+id/sb_ex_slider"
+            android:gravity="center"
+            android:text="White / 0"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/tv_slider_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/sb_ex_slider"
+            android:layout_marginBottom="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/sb_ex_slider"
+            android:gravity="center"
+            android:text="Black / 100"
+            android:textColor="@color/colorPrimaryDark" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ex_device"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rl_main_menu"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/bt_device_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:text="Submit"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/bt_device_next_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/bt_device_next_l"
+            android:layout_alignBottom="@+id/bt_device_next_l"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="72dp"
+            android:background="@color/colorPrimary"
+            android:text="Next"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/bt_device_next_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="65dp"
+            android:layout_marginStart="58dp"
+            android:background="@color/colorPrimary"
+            android:text="Next"
+            android:textColor="@color/colorAccent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ex_pre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/bt_next_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="57dp"
+            android:background="@color/colorPrimary"
+            android:text="Start"
+            android:textColor="@color/colorAccent" />
+
+
+        <pl.droidsonroids.gif.GifTextView
+            android:id="@+id/gif_arm"
+            android:layout_width="120mm"
+            android:layout_height="60mm"
+            android:layout_above="@+id/bt_next_ex"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/gif_arm" />
+
+        <pl.droidsonroids.gif.GifTextView
+            android:id="@+id/gif_wrist"
+            android:layout_width="120mm"
+            android:layout_height="60mm"
+            android:layout_above="@+id/bt_next_ex"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/gif_wrist" />
+
+        <pl.droidsonroids.gif.GifTextView
+            android:id="@+id/gif_slider"
+            android:layout_width="120mm"
+            android:layout_height="60mm"
+            android:layout_above="@+id/bt_next_ex"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/gif_slider" />
+
+        <VideoView
+            android:id="@+id/iv_next_ex"
+            android:layout_width="100mm"
+            android:layout_height="50mm"
+            android:layout_above="@+id/bt_next_ex"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="52dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ex_finish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_ex_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="127dp"
+            android:text="The experiment is finished\n\nThank you for participating"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bt_ex_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="172dp"
+            android:text="Finish" />
+    </RelativeLayout>
+
+</RelativeLayout>
